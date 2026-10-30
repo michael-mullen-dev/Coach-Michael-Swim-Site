@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coach Michael | Private Swim Lessons, Kirkland and the Eastside</title>
+<meta name="description" content="One-on-one swim lessons on the Eastside with Coach Michael, an Olympic Trials qualifier and former National Age Group record holder. Private and small group lessons.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --deep:#0d2b45;      /* deep-end water */
+    --water:#3fb8d6;     /* lit pool water */
+    --rope:#d6322b;      /* lane-rope red */
+    --tile:#f5f9fb;      /* pool-deck tile */
+    --grout:#c9dbe3;     /* tile grout */
+    --ink:#0d2b45;
+    --muted:#4f6a80;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--tile);color:var(--ink);font-family:Archivo,system-ui,sans-serif;font-stretch:100%;font-size:17px;line-height:1.6}
+  img{max-width:100%}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--water);outline-offset:3px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .display{font-stretch:125%;font-weight:850;line-height:.95;letter-spacing:-.01em}
+
+  /* the lane rope: the page's one signature element */
+  .rope{height:14px;background:
+      repeating-linear-gradient(90deg,var(--rope) 0 34px,#fff 34px 46px,var(--deep) 46px 80px,#fff 80px 92px);
+    border-radius:7px;box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)}
+
+  /* top bar */
+  header.top{background:var(--deep);color:#fff}
+  header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-stretch:125%;font-weight:800;font-size:20px;text-decoration:none}
+  .call{font-weight:600;font-size:15px;text-decoration:none;color:#cde8f1}
+  .call:hover{color:#fff}
+
+  /* hero */
+  .hero{background:var(--deep);color:#fff;padding:56px 0 0}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:end}
+  .hero h1{font-size:clamp(46px,6.4vw,84px);margin:0 0 24px}
+  .hero p{font-size:19px;color:#cde8f1;max-width:32ch;margin:0 0 32px}
+  .actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;padding-bottom:64px}
+  .btn{display:inline-block;font:inherit;font-weight:700;font-size:17px;border:0;cursor:pointer;text-decoration:none;padding:16px 26px;border-radius:10px}
+  .btn-rope{background:var(--rope);color:#fff}
+  .btn-rope:hover{background:#bb2720}
+  .price{font-weight:600;color:#fff}
+  .price b{font-stretch:125%;font-size:22px}
+  .portrait{position:relative;align-self:end}
+  .portrait img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:14px 14px 0 0}
+  .hero .rope{margin-top:0;border-radius:0}
+
+  /* heat sheet */
+  .sheet{padding:72px 0}
+  .sheet h2,.section h2{font-size:clamp(34px,4.4vw,52px);margin:0 0 8px}
+  .sub{color:var(--muted);margin:0 0 32px;max-width:52ch}
+  table{width:100%;border-collapse:collapse;font-size:17px}
+  th,td{text-align:left;padding:16px 12px;border-bottom:1px solid var(--grout);vertical-align:top}
+  th{font-weight:600;color:var(--muted);font-size:14px;border-bottom:2px solid var(--deep)}
+  td.lane{width:64px;font-stretch:125%;font-weight:800;color:var(--water);font-size:20px}
+  td.what{font-weight:700;width:38%}
+  td.detail{color:var(--muted)}
+
+  /* about */
+  .section{padding:72px 0;border-top:1px solid var(--grout)}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  .two p{margin:0 0 16px;max-width:60ch}
+  .fit{display:grid;gap:22px}
+  .fit div{border-left:4px solid var(--water);padding-left:18px}
+  .fit h3{margin:0 0 4px;font-size:20px;font-stretch:112%}
+  .fit p{margin:0;color:var(--muted)}
+
+  /* details */
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--deep);border-radius:12px;overflow:hidden;background:#fff}
+  .facts div{padding:24px;border-right:1px solid var(--grout)}
+  .facts div:last-child{border-right:0}
+  .facts strong{display:block;font-stretch:125%;font-weight:850;font-size:34px;line-height:1.1;margin-bottom:6px}
+  .facts span{color:var(--muted);font-size:15px}
+  .sched td:nth-child(2){white-space:nowrap}
+  .sched tr.best td{background:#e8f6fa}
+  .sched tr.best td.what{box-shadow:inset 4px 0 0 var(--water)}
+  .facts.four{grid-template-columns:repeat(4,1fr)}
+  .facts strong small{font-size:17px;font-weight:600;font-stretch:100%;color:var(--muted)}
+
+  /* request form */
+  .book{background:var(--deep);color:#fff;padding:72px 0}
+  .book .sub{color:#cde8f1}
+  .form-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:start}
+  form{background:#fff;color:var(--ink);border-radius:14px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .full{grid-column:1/-1}
+  label,.legend{display:block;font-size:15px;font-weight:700;margin-bottom:6px}
+  input,select,textarea{width:100%;font:inherit;font-size:16px;padding:12px 14px;border:1.5px solid var(--grout);border-radius:8px;background:#fff;color:var(--ink)}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--water);box-shadow:0 0 0 3px rgba(63,184,214,.25)}
+  textarea{min-height:96px;resize:vertical}
+  fieldset{border:0;padding:0;margin:0}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chips label{font-weight:500;display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--grout);border-radius:8px;padding:9px 14px;margin:0;cursor:pointer}
+  .chips label:has(input:checked){border-color:var(--water);background:#e8f6fa}
+  .chips input{width:auto;margin:0;accent-color:var(--water)}
+  .hidden{display:none}
+  .side h3{font-size:22px;font-stretch:112%;margin:0 0 12px}
+  .side p{color:#cde8f1;margin:0 0 20px}
+  .side a{color:#fff;font-weight:700;text-decoration:none;font-size:19px;display:block;margin-bottom:6px;word-break:break-word}
+  .side a:hover{text-decoration:underline}
+
+  footer{background:var(--deep);color:#8fb3c8;font-size:14px;padding:0 0 28px}
+  footer .rope{margin-bottom:24px;border-radius:0}
+
+  @media (max-width:880px){
+    body{font-size:16px}
+    .hero{padding-top:28px}
+    .hero-grid{grid-template-columns:1fr;gap:28px}
+    .portrait{order:-1;max-width:340px}
+    .portrait img{border-radius:14px}
+    .actions{padding-bottom:40px}
+    .two,.form-grid{grid-template-columns:1fr;gap:36px}
+    .facts,.facts.four{grid-template-columns:1fr 1fr}
+    .facts div:nth-child(odd){border-right:1px solid var(--grout)}
+    .facts div:nth-child(n+3){border-bottom:0}
+    .facts div{border-right:0;border-bottom:1px solid var(--grout)}
+    .facts div:last-child{border-bottom:0}
+    form{grid-template-columns:1fr;padding:22px}
+    .sheet,.section,.book{padding:52px 0}
+    td.what{width:auto}
+    .sheet th:nth-child(3),td.detail{display:none}
+    .sched td,.sched th{padding:14px 6px;font-size:15px}
+    td.what small{display:block;font-weight:400;color:var(--muted)}
+  }
+  @media (min-width:881px){ td.what small{display:none} }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#">Coach Michael</a>
+    <a class="call" href="tel:+17038534360">Text 703-853-4360</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1 class="display">Private swim lessons from a coach who's raced at the top.</h1>
+      <p>One-on-one and small group lessons on the Eastside for swimmers who want cleaner strokes, faster turns, and real time drops.</p>
+      <div class="actions">
+        <a class="btn btn-rope" href="#book">Request a lesson</a>
+        <span class="price">Privates and small groups from <b>$80</b></span>
+      </div>
+    </div>
+    <div class="portrait">
+      <img src="/coach-michael.jpg" alt="Coach Michael standing above Lake Washington" width="840" height="1037">
+    </div>
+  </div>
+  <div class="rope" aria-hidden="true"></div>
+</section>
+
+<section class="sheet">
+  <div class="wrap">
+    <h2 class="display">The heat sheet</h2>
+    <p class="sub">What your swimmer is getting in the water with.</p>
+    <table>
+      <thead><tr><th>Lane</th><th>Result</th><th>Detail</th></tr></thead>
+      <tbody>
+        <tr><td class="lane">1</td><td class="what">Olympic Trials qualifier<small>Made the cuts at age 15</small></td><td class="detail">Made the cuts at age 15</td></tr>
+        <tr><td class="lane">2</td><td class="what">National Age Group record<small>Former record holder</small></td><td class="detail">Former record holder</td></tr>
+        <tr><td class="lane">3</td><td class="what">No. 9 all-time, 200 fly<small>15-16 age group, all-time rankings</small></td><td class="detail">15-16 age group, all-time rankings</td></tr>
+        <tr><td class="lane">4</td><td class="what">Florida state champion<small>Multiple titles</small></td><td class="detail">Multiple titles</td></tr>
+        <tr><td class="lane">5</td><td class="what">Club records<small>Bolles Swim Club and NCAP</small></td><td class="detail">Bolles Swim Club and NCAP</td></tr>
+        <tr><td class="lane">6</td><td class="what">Lead Coach, White Group<small>Wave Aquatics</small></td><td class="detail">Wave Aquatics</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap two">
+    <div>
+      <h2 class="display">Hi, I'm Michael</h2>
+      <p>I grew up training at two of the country's top clubs, Bolles in Florida and NCAP, and was a top-10 national recruit before an injury ended my college swimming.</p>
+      <p>Now I coach every day as Lead Coach of White Group at Wave Aquatics. Private lessons let me give one swimmer my full attention: we film, fix, and drill the exact things holding them back.</p>
+    </div>
+    <div class="fit">
+      <div><h3>Club swimmers chasing times</h3><p>Starts, turns, underwaters, and race plans that turn into best times.</p></div>
+      <div><h3>Kids getting ready for a team</h3><p>Strong, legal strokes in all four so tryouts feel easy.</p></div>
+      <div><h3>One specific fix</h3><p>Breaststroke kick, butterfly timing, a meet coming up. Bring the goal.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="wrap">
+    <h2 class="display">Lessons and pricing</h2>
+    <p class="sub">Bring a sibling or teammate and everyone pays less. Book the same slot every week to keep your time.</p>
+    <div class="facts four">
+      <div><strong>$120</strong><span>Private lesson, one swimmer</span></div>
+      <div><strong>$90</strong><span>30-minute private, one swimmer</span></div>
+      <div><strong>$90<small> each</small></strong><span>Group of 2 swimmers</span></div>
+      <div><strong>$80<small> each</small></strong><span>Group of 3 swimmers</span></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="schedule">
+  <div class="wrap">
+    <h2 class="display">Lesson times</h2>
+    <p class="sub">Weekends at Juanita are the easiest to get. Pick the windows that work in the form below and I'll send you an exact start time.</p>
+    <table class="sched">
+      <thead><tr><th>Day</th><th>Times</th><th>Pool</th></tr></thead>
+      <tbody>
+        <tr class="best"><td class="what">Saturday</td><td>9am-3pm<br>6-7pm</td><td>Juanita (Kirkland)</td></tr>
+        <tr class="best"><td class="what">Sunday</td><td>9am-2pm<br>6-7pm</td><td>Juanita (Kirkland)</td></tr>
+        <tr><td class="what">Monday</td><td>10am-3:30pm</td><td>Strattonwood</td></tr>
+        <tr><td class="what">Tuesday</td><td>10am-4pm</td><td>Strattonwood</td></tr>
+        <tr><td class="what">Wednesday</td><td>10am-4pm</td><td>Strattonwood</td></tr>
+        <tr><td class="what">Thursday</td><td>10am-4pm</td><td>Strattonwood</td></tr>
+        <tr><td class="what">Friday</td><td>10am-1pm<br>2-4pm</td><td>Strattonwood</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="wrap form-grid">
+    <div>
+      <h2 class="display" style="font-size:clamp(34px,4.4vw,52px);margin:0 0 8px">Request a lesson</h2>
+      <p class="sub">Tell me about your swimmer and when works. I'll reply within a day to lock in a time.</p>
+
+      <form name="lesson-request" method="POST" action="/thank-you" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="subject" value="New swim lesson request">
+        <p class="hidden"><label>Leave this empty: <input name="bot-field"></label></p>
+
+        <div class="full">
+          <label for="type">Lesson type</label>
+          <select id="type" name="lesson_type" required>
+            <option value="">Choose one</option>
+            <option>Private lesson ($120)</option>
+            <option>30-minute private ($90)</option>
+            <option>Group of 2 ($90 each)</option>
+            <option>Group of 3 ($80 each)</option>
+          </select>
+        </div>
+        <div><label for="parent">Your name</label><input id="parent" name="parent_name" autocomplete="name" required></div>
+        <div><label for="swimmer">Swimmer's name</label><input id="swimmer" name="swimmer_name" required></div>
+        <div><label for="email">Email</label><input id="email" type="email" name="email" autocomplete="email" required></div>
+        <div><label for="phone">Phone</label><input id="phone" type="tel" name="phone" autocomplete="tel" required></div>
+        <div><label for="age">Swimmer's age</label><input id="age" name="swimmer_age" inputmode="numeric" required></div>
+        <div>
+          <label for="level">Level</label>
+          <select id="level" name="level" required>
+            <option value="">Choose one</option>
+            <option>Learning strokes, not on a team yet</option>
+            <option>Newer club swimmer</option>
+            <option>Competitive club swimmer</option>
+            <option>High school or senior level</option>
+          </select>
+        </div>
+        <fieldset class="full">
+          <span class="legend">Times that work (pick any)</span>
+          <div class="chips">
+            <label><input type="checkbox" name="times" value="Saturday, Juanita"> Sat, Juanita</label>
+            <label><input type="checkbox" name="times" value="Sunday, Juanita"> Sun, Juanita</label>
+            <label><input type="checkbox" name="times" value="Weekday, Strattonwood"> Weekday, Strattonwood</label>
+          </div>
+        </fieldset>
+        <div class="full"><label for="when">Preferred day and time</label><input id="when" name="availability" placeholder="Saturdays around 10am"></div>
+        <div class="full"><label for="goals">What should we work on?</label><textarea id="goals" name="goals" placeholder="Wants to fix her breaststroke kick before the December meet"></textarea></div>
+        <div class="full"><button class="btn btn-rope" type="submit">Send request</button></div>
+      </form>
+    </div>
+
+    <aside class="side">
+      <h3>Rather text?</h3>
+      <p>Most parents just text me. Send your swimmer's name, age, and which pool works.</p>
+      <a href="sms:+17038534360">703-853-4360</a>
+      <a href="mailto:coachmichael@waveaquatics.org">coachmichael@waveaquatics.org</a>
+    </aside>
+  </div>
+</section>
+
+<footer>
+  <div class="rope" aria-hidden="true"></div>
+  <div class="wrap">Coach Michael Swim Lessons, Eastside WA. Independently insured for private instruction.</div>
+</footer>
+</body>
+</html>
